@@ -1,3 +1,3 @@
 # VISUX
-linux with graphic
+linux with graphic（vista）
 
