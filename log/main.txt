@@ -1,0 +1,44 @@
+
+bin/main.obj:     file format pe-i386
+
+
+Disassembly of section .text:
+
+00000000 <_print>:
+   0:	55                   	push   %ebp
+   1:	89 e5                	mov    %esp,%ebp
+   3:	83 ec 10             	sub    $0x10,%esp
+   6:	c7 45 fc 00 00 00 00 	movl   $0x0,-0x4(%ebp)
+   d:	eb 23                	jmp    32 <_print+0x32>
+   f:	8b 55 fc             	mov    -0x4(%ebp),%edx
+  12:	8b 45 08             	mov    0x8(%ebp),%eax
+  15:	01 d0                	add    %edx,%eax
+  17:	0f b6 10             	movzbl (%eax),%edx
+  1a:	a1 00 00 00 00       	mov    0x0,%eax
+  1f:	8d 88 00 04 00 00    	lea    0x400(%eax),%ecx
+  25:	8b 45 fc             	mov    -0x4(%ebp),%eax
+  28:	01 c0                	add    %eax,%eax
+  2a:	01 c8                	add    %ecx,%eax
+  2c:	88 10                	mov    %dl,(%eax)
+  2e:	83 45 fc 01          	addl   $0x1,-0x4(%ebp)
+  32:	8b 55 fc             	mov    -0x4(%ebp),%edx
+  35:	8b 45 08             	mov    0x8(%ebp),%eax
+  38:	01 d0                	add    %edx,%eax
+  3a:	0f b6 00             	movzbl (%eax),%eax
+  3d:	84 c0                	test   %al,%al
+  3f:	75 ce                	jne    f <_print+0xf>
+  41:	90                   	nop
+  42:	90                   	nop
+  43:	c9                   	leave  
+  44:	c3                   	ret    
+
+00000045 <__main>:
+  45:	55                   	push   %ebp
+  46:	89 e5                	mov    %esp,%ebp
+  48:	83 ec 04             	sub    $0x4,%esp
+  4b:	c7 04 24 00 00 00 00 	movl   $0x0,(%esp)
+  52:	e8 a9 ff ff ff       	call   0 <_print>
+  57:	eb fe                	jmp    57 <__main+0x12>
+  59:	90                   	nop
+  5a:	90                   	nop
+  5b:	90                   	nop
