@@ -46,28 +46,9 @@ cld
 rep movsb
 
 ;打开高分辨率模式
-mov ax,0x4F02
-mov bx,0x4180
-int 0x10
-
-;把系统代码搬到最前面去0x00处
-push es
-push ds
-
-mov ax, 0x1000
-mov ds, ax
-mov ax, 0x0000
-mov es, ax
-;cx是loop得循环次数
-mov cx, 0x8000
-sub si, si
-sub di, di
-;movsb(move bytes) movsw(move words)
-;原始数据段由 DS:SI 指定
-;目的数据段由 ES:DI 指定
-;传送方向由标志寄存器FLAGS决定（增？减）
-cld
-rep movsw
+;mov ax,0x4F02
+;mov bx,0x4180
+;int 0x10
 
 
 pop ds
@@ -111,8 +92,11 @@ out 0x92, al
 
 mov ax, 0x0001 ; 打开保护模式！！ cr0 寄存器的0位置为1就行了
 lmsw ax
-
-jmp 8:0
+;记得把段寄存器都重置一下
+mov ax, 16
+mov ds, ax ;数据段寄存器
+mov ss, ax ;栈段寄存器
+jmp 8:0x1000    ;代码寄存器
 
 gdt_48:
      dw 0x0800 ;gdt limit = 2048,256 GDT entries

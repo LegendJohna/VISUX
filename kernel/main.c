@@ -1,23 +1,19 @@
-#define Write(x) *(unsigned char*)(x)
 #define main _main
 
-int DisplayAddress = 0xb8000;
-int head = 1;
-const char str[] = "Hello world";
-
-void print(const char* ptr)
-{
-    for(int i = 0; ptr[i] != '\0'; i++)
-    {
-        Write(DisplayAddress + 0x400 + 2*i) = ptr[i];
-    }
-}
-
-
+#include "visux32/include/format.h"
+#include "libc/include/string.h"
+#include "system/interrupt/include/interrupt.h"
 int main()
 {
-    print(str);
 
+    clear();
+    InitlizeInterrupts();
+    int money = strlen("Hello world");
+    const char* message = "money";
+    format("I have {int} {string} !\n", money, message);
+    format("Hello world !\n");
+    format("Hello world !\n");
+    format("Hello world !\n");
     while (1)
     {
         
