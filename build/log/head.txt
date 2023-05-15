@@ -1,0 +1,39 @@
+
+build/obj/head.obj:     file format pe-i386
+
+
+Disassembly of section .text:
+
+00000000 <.text>:
+   0:	b8 00 00 00 00       	mov    $0x0,%eax
+   5:	b9 00 10 00 00       	mov    $0x1000,%ecx
+   a:	c6 00 00             	movb   $0x0,(%eax)
+   d:	40                   	inc    %eax
+   e:	e2 fa                	loop   a <.text+0xa>
+  10:	e8 2f 00 00 00       	call   44 <.text+0x44>
+  15:	e8 49 00 00 00       	call   63 <.text+0x63>
+  1a:	68 00 00 00 00       	push   $0x0
+  1f:	e9 00 00 00 00       	jmp    24 <.text+0x24>
+  24:	eb fe                	jmp    24 <.text+0x24>
+  26:	17                   	pop    %ss
+	...
+  33:	00 ff                	add    %bh,%bh
+  35:	07                   	pop    %es
+  36:	00 00                	add    %al,(%eax)
+  38:	00 9a c0 00 ff 07    	add    %bl,0x7ff00c0(%edx)
+  3e:	00 00                	add    %al,(%eax)
+  40:	00 92 c0 00 b9 18    	add    %dl,0x18b900c0(%edx)
+  46:	00 00                	add    %al,(%eax)
+  48:	00 29                	add    %ch,(%ecx)
+  4a:	f6 29                	imulb  (%ecx)
+  4c:	ff                   	(bad)  
+  4d:	be 2c 00 00 00       	mov    $0x2c,%esi
+  52:	fc                   	cld    
+  53:	f3 a4                	rep movsb %ds:(%esi),%es:(%edi)
+  55:	0f 01 15 26 00 00 00 	lgdtl  0x26
+  5c:	c3                   	ret    
+  5d:	ff 07                	incl   (%edi)
+  5f:	24 00                	and    $0x0,%al
+  61:	00 00                	add    %al,(%eax)
+  63:	0f 01 1d 5d 00 00 00 	lidtl  0x5d
+  6a:	c3                   	ret    

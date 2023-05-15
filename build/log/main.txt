@@ -1,0 +1,62 @@
+
+build/obj/main.obj:     file format pe-i386
+
+
+Disassembly of section .text:
+
+00000000 <__main>:
+   0:	55                   	push   %ebp
+   1:	89 e5                	mov    %esp,%ebp
+   3:	83 ec 28             	sub    $0x28,%esp
+   6:	e8 00 00 00 00       	call   b <__main+0xb>
+   b:	e8 00 00 00 00       	call   10 <__main+0x10>
+  10:	c7 04 24 00 00 00 00 	movl   $0x0,(%esp)
+  17:	e8 00 00 00 00       	call   1c <__main+0x1c>
+  1c:	89 45 f4             	mov    %eax,-0xc(%ebp)
+  1f:	c7 45 f0 0c 00 00 00 	movl   $0xc,-0x10(%ebp)
+  26:	8b 45 f0             	mov    -0x10(%ebp),%eax
+  29:	89 44 24 08          	mov    %eax,0x8(%esp)
+  2d:	8b 45 f4             	mov    -0xc(%ebp),%eax
+  30:	89 44 24 04          	mov    %eax,0x4(%esp)
+  34:	c7 04 24 12 00 00 00 	movl   $0x12,(%esp)
+  3b:	e8 00 00 00 00       	call   40 <__main+0x40>
+  40:	c7 04 24 2b 00 00 00 	movl   $0x2b,(%esp)
+  47:	e8 00 00 00 00       	call   4c <__main+0x4c>
+  4c:	c7 04 24 2b 00 00 00 	movl   $0x2b,(%esp)
+  53:	e8 00 00 00 00       	call   58 <__main+0x58>
+  58:	c7 04 24 2b 00 00 00 	movl   $0x2b,(%esp)
+  5f:	e8 00 00 00 00       	call   64 <__main+0x64>
+  64:	eb fe                	jmp    64 <__main+0x64>
+  66:	90                   	nop
+  67:	90                   	nop
+
+Disassembly of section .rdata:
+
+00000000 <.rdata>:
+   0:	48                   	dec    %eax
+   1:	65 6c                	gs insb (%dx),%es:(%edi)
+   3:	6c                   	insb   (%dx),%es:(%edi)
+   4:	6f                   	outsl  %ds:(%esi),(%dx)
+   5:	20 77 6f             	and    %dh,0x6f(%edi)
+   8:	72 6c                	jb     76 <.rdata+0x76>
+   a:	64 00 6d 6f          	add    %ch,%fs:0x6f(%ebp)
+   e:	6e                   	outsb  %ds:(%esi),(%dx)
+   f:	65 79 00             	gs jns 12 <.rdata+0x12>
+  12:	49                   	dec    %ecx
+  13:	20 68 61             	and    %ch,0x61(%eax)
+  16:	76 65                	jbe    7d <.rdata+0x7d>
+  18:	20 7b 69             	and    %bh,0x69(%ebx)
+  1b:	6e                   	outsb  %ds:(%esi),(%dx)
+  1c:	74 7d                	je     9b <.rdata+0x9b>
+  1e:	20 7b 73             	and    %bh,0x73(%ebx)
+  21:	74 72                	je     95 <.rdata+0x95>
+  23:	69 6e 67 7d 20 21 0a 	imul   $0xa21207d,0x67(%esi),%ebp
+  2a:	00 48 65             	add    %cl,0x65(%eax)
+  2d:	6c                   	insb   (%dx),%es:(%edi)
+  2e:	6c                   	insb   (%dx),%es:(%edi)
+  2f:	6f                   	outsl  %ds:(%esi),(%dx)
+  30:	20 77 6f             	and    %dh,0x6f(%edi)
+  33:	72 6c                	jb     a1 <.rdata+0xa1>
+  35:	64 20 21             	and    %ah,%fs:(%ecx)
+  38:	0a 00                	or     (%eax),%al
+	...
